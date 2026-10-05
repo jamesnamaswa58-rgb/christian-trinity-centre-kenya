@@ -2,7 +2,6 @@ import { ArrowRight, BookOpen, HeartHandshake, MapPin, Play, Sparkles, Users } f
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ContactStrip, EventCard, imageUrls, PageFrame, SectionIntro } from "@/components/SiteLayout";
-import Cross3D from "@/components/Cross3D";
 
 const ministries = [
   { icon: HeartHandshake, number: "01", title: "Sunday worship", body: "A warm, reverent gathering centred on Scripture, prayer, and the joy of being together." },
@@ -18,7 +17,6 @@ export default function Home() {
           <img src={imageUrls.worship} alt="A congregation gathered in worship" className="hero-image" />
           <div className="hero-overlay" />
           <div className="container relative z-10 flex min-h-[680px] items-end pb-20 pt-32 md:min-h-[760px] md:pb-28">
-            <div className="hero-cross" aria-hidden="true"><Cross3D /></div>
             <div className="max-w-3xl text-white">
               <p className="eyebrow eyebrow-light">A church, a school, a family</p>
               <h1 className="display-title mt-4">A place to <em>belong,</em> believe, and become.</h1>

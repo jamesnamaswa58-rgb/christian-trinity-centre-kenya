@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Cross3D from "@/components/Cross3D";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -150,7 +151,7 @@ export function SiteFooter() {
 }
 
 export function PageFrame({ children }: { children: React.ReactNode }) {
-  return <div className="min-h-screen bg-[var(--cream)] text-[var(--ink)]"><SiteHeader />{children}<SiteFooter /></div>;
+  return <div className="page-frame min-h-screen bg-[var(--cream)] text-[var(--ink)]"><div className="site-cross-background" aria-hidden="true"><Cross3D /></div><SiteHeader />{children}<SiteFooter /></div>;
 }
 
 export function SectionIntro({ eyebrow, title, body, light = false }: { eyebrow: string; title: string; body?: string; light?: boolean }) {
