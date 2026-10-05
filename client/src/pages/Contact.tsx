@@ -1,0 +1,14 @@
+import { FormEvent } from "react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { toast } from "sonner";
+import { ContactStrip, imageUrls, PageFrame, PageHero, SectionIntro } from "@/components/SiteLayout";
+
+export default function Contact() {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    toast.success("Thank you — your message is ready for our team.");
+    event.currentTarget.reset();
+  };
+
+  return <PageFrame><main><PageHero eyebrow="Come say hello" title="We would love to hear from you." body="Whether you are planning a first visit, asking about the school, or looking for a place to serve, our team is here to help." image={imageUrls.community} /><section className="section-pad"><div className="container grid gap-14 lg:grid-cols-[0.8fr_1.2fr]"><div><SectionIntro eyebrow="Get in touch" title="Let’s start a conversation." body="We are a small, welcoming team and we will do our best to respond within two working days." /><div className="mt-10 space-y-6"><a href="tel:+254700000000" className="contact-detail"><span className="icon-circle"><Phone className="h-4 w-4" /></span><span><strong>Call us</strong><small>+254 700 000 000</small></span></a><a href="mailto:hello@christiantrinitycentre.org" className="contact-detail"><span className="icon-circle"><Mail className="h-4 w-4" /></span><span><strong>Email us</strong><small>hello@christiantrinitycentre.org</small></span></a><div className="contact-detail"><span className="icon-circle"><MapPin className="h-4 w-4" /></span><span><strong>Visit us</strong><small>Kilimani & Makhonge, Kenya</small></span></div></div></div><form onSubmit={handleSubmit} className="form-card"><div className="grid gap-5 sm:grid-cols-2"><label><span>Your name</span><input required name="name" placeholder="Jane Wanjiku" /></label><label><span>Email address</span><input required type="email" name="email" placeholder="jane@example.com" /></label></div><label><span>What can we help with?</span><select name="topic" defaultValue="visit"><option value="visit">Planning a visit</option><option value="school">Trinity Academy</option><option value="youth">Youth & families</option><option value="serve">Serving or partnering</option><option value="other">Something else</option></select></label><label><span>Your message</span><textarea required name="message" rows={5} placeholder="Tell us a little more..." /></label><button type="submit" className="button button-dark w-full sm:w-auto">Send message <Send className="h-4 w-4" /></button></form></div></section><section className="map-placeholder"><div className="container"><div className="map-inner"><div className="map-grid" /><div className="map-label"><MapPin className="h-5 w-5 text-[var(--gold-dark)]" /><div><strong>Christian Trinity Centre</strong><span>Kilimani & Makhonge, Kenya</span></div></div></div></div></section><ContactStrip /></main></PageFrame>;
+}
